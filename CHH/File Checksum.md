@@ -1,4 +1,4 @@
-Đề cho một trang web có chức năng upload file và filter extension 
+Đây là một challeng PHP có chức năng upload file và filter extension 
 ```php
   $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
   $disallowedExtensions = ['php', 'php5', 'php6', 'php7', 'php8'];
