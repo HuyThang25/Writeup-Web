@@ -8,7 +8,7 @@ def vuln():
         param = param.replace(_, "*")
     return param
 ```
-Code replace nhưng string "frame", "script", "on" thành "*" mình đã thử dùng thẻ object mà không hiểu tại sao lại không hoạt động
+Code replace các string "frame", "script", "on" thành "*" mình đã thử dùng thẻ object mà không hiểu tại sao lại không hoạt động
 
 ```
 <object data="data:text/html;base64,PHN2Zy9vbmxvYWQ9YWxlcnQoMik+"></object>
