@@ -1,4 +1,4 @@
-Sử dụng ký tự `'` để xem có bị dính SQLi hay không, thì thấy bị dính lỗi
+Sử dụng ký tự `'` để xem có bị dính SQLi hay không, thì thấy raise ra lỗi
 
 ![image](https://github.com/user-attachments/assets/91d74e82-ff60-4e20-997d-744db7d38d5e)
 
