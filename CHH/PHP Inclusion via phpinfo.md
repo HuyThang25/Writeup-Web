@@ -1,4 +1,4 @@
-Bài cho một web dính lỗ hổng `LFI`
+Đây là challeng blackbox được viết bằng PHP. Sau một hồi fuzzing thì mình tìm được bug `LFI`
 ![image](https://github.com/user-attachments/assets/ecf86fe8-3aab-4476-a483-25851aa1b22d)
 
 - Theo như tên bài mình đoán ngay là LFI to RCE bằng phpinfo. Đọc được thông tin cấu hình qua file `phpinfo.php`
