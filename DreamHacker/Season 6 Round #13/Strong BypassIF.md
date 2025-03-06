@@ -1,4 +1,4 @@
-Bài cho một một web bằng java được build thành file `.jar`. Đọc source ta thấy flag nằm trong path `/api/flag`
+Đây là challenge whitebox viết bằng java. Đọc source ta thấy flag nằm trong path `/api/flag`
 
 ```java
     @GetMapping("/flag")
