@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/8c07037a-a4c8-4ffb-973b-9ff00cec3774)
 
-Đề cho một web được viết bằng java springboot. Đọc source thì thấy trang trủ chấp nhận method `POST` với tham số là data. Decode hex và base64 rồi deserialize thành class User. Sau đó chuyền biến `name` vào template Velocity.
+Đề cho một web được viết bằng java springboot. Đọc source thì thấy trang chủ chấp nhận method `POST` với tham số là data. Decode hex và base64 rồi deserialize thành class User. Sau đó chuyền biến `name` vào template Velocity.
 
 ```java
 public String hello(@RequestParam("data") String data) throws IOException {
