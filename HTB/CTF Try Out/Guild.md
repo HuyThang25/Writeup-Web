@@ -1,4 +1,4 @@
-Challenge là web viết bằng python và có source code. Ban đầu mình có xem qua các chức năng ở frontend và source code thì thấy một số chỗ dính ssti do sử dụng hàm `render_template_string`
+Đây là challenge whitebox được viết bằng python. Ban đầu mình có xem qua các chức năng ở frontend và source code thì thấy một số chỗ dính ssti do sử dụng hàm `render_template_string`
 
 ![image](https://github.com/user-attachments/assets/b54b4c4a-b865-48eb-90c7-f88704f8341b)
 ![image](https://github.com/user-attachments/assets/21d44d2f-5471-414e-bf90-b87444522c7b)
